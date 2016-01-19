@@ -1,0 +1,18 @@
+worker-first:
+    build: .
+    dockerfile: Dockerfile_worker
+    command: First
+
+worker-second:
+    build: .
+    dockerfile: Dockerfile_worker
+    command: Second
+    
+gateway:
+    build: .
+    dockerfile: Dockerfile_gateway
+    links:
+     - worker-first:first
+     - worker-second:second
+    ports:
+     - "2345:2345"
