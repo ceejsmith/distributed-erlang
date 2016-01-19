@@ -2,6 +2,7 @@
 -export([start/1]).
 
 start([Response]) ->
+    io:format("SERVER Trying to bind to port 2345~n"),
     {ok, Listen} = gen_tcp:listen(2345, [binary, {packet, 0}, {reuseaddr, true}, {active, true}]),
     io:format("SERVER Listening on port 2345~n"),
     accept(Listen, Response).
