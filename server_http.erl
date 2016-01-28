@@ -30,8 +30,8 @@ loop(Socket) ->
 %% Paths beginning in the first half of the alphabet go to the first back end node
 %% The second half go to the second back end node
 host_for(<<"GET /", FirstChar:1/binary, _Rest/binary>>) ->
-    <<Char>> = FirstChar,
-    case string:to_upper(Char) of
+    Char = string:to_upper(binary:first(FirstChar)),
+    case Char of
         _ when Char >= $A, Char =< $M -> "first";
         _ when Char >= $N, Char =< $Z -> "second";
         _ -> "error"
