@@ -1,4 +1,7 @@
 # distributed-erlang
+
+NB: The original code described in the blog post has been reviewed by someone who knows a lot more about Erlang than me! Thanks Pierre Fenoll. The bits that differ from listings in the blog are now more idiomatic.
+
 PoC for distributed Erlang
 
 The challenge is to have one container receive HTTP requests
